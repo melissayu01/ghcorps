@@ -1,0 +1,78 @@
+<!-- Full Club Description, contains comprehensive info and ratings/reviews -->
+
+{% extends "base.html" %}
+
+{% block title %} {{ club.name }} {% endblock %}
+
+{% block content %}
+<section id="content">
+   	<!-- CLub name heading-->
+   	<div class="row section-head">
+   		<div class="twelve columns">
+	     <h1>{{ club.name }} {{ club.abbreviation }}<span>.</span></h1>
+	     <hr>
+	 	</div> 
+	</div>
+    <!-- Genre, rating, and description -->
+	<div class="row">
+		<div class="twelve columns">
+		<h3>{{ club.genre.all }}</h3>
+		<h3>Overall Rating: {{ club.overall_rating }}</h3>
+		<p>{{ club.description }}</p>
+		</div>
+	</div>      
+
+	<!-- Reviews heading -->
+	<div class="row section-head">
+   		<div class="twelve columns">
+	     <h1>Reviews<span>.</span></h1>
+	     <hr>
+	 	</div>
+	</div>
+
+	<!-- Past Reviews -->
+	<div class="row">
+		<div id="main">
+			<div id="comments">
+			<ol class="commentlist">
+				{% for review in reviews %}
+					{% if review.review != '' %}
+					   	<li class="depth-1">
+					      <div class="comment-content">
+							<div class="comment-info">
+								<cite>{{review.reviewer}} says...</cite>
+							</div>
+							<div class="comment-text">
+								<p>{{review.review}}</p>
+							</div>
+					       </div>
+					   	</li>
+				   	{% endif %}
+				{% endfor %}
+			</ol>
+			</div>
+		</div>
+	</div>
+
+	<!-- Leave a Review -->
+	<div class="row section-head">
+   		<div class="twelve columns">
+	     <h1>Leave a Review<span>.</span></h1>
+	     <hr>
+	 	</div>
+	</div>
+</section> <!-- /content -->
+
+<!-- Review Form -->
+<section id="contact">
+	<div class="row">
+		<form action="{{club.id}}" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ form }}
+			<input type="submit" value="Submit" />
+		</form>
+		<br>
+	</div>
+</section>
+{% endblock %}
+

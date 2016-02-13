@@ -1,0 +1,45 @@
+<!-- Home page -->
+
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<!-- Search Button -->
+<section id="search">
+    <div class="row">
+        <div class="twelve columns"> 
+            <form action="/search/" method="get">
+                <fieldset>
+                    <div class="tab-whole twelve columns">
+                        <button class="submit full-width">Search Clubs</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>  
+</section>
+
+<!-- All Clubs Listing -->
+<section id="portfolio">
+	<div class="row section-head">
+      	<div class="twelve columns">
+	         <h1>Harvard Clubs Made Easy<span>.</span></h1>
+	         <hr />
+		</div>
+	</div>
+	<div class="row">
+      	<div class="twelve columns">
+	      	<div class="tab-whole six columns"><h2>Club Name</h2></div>
+            <div class="tab-whole three columns"><h2>Genre</h2></div>
+            <div class="tab-whole three columns"><h2>Overall rating</h2></div>
+			{% for club in club_list %}
+				{% include "short_club.html" %}
+			{% endfor %}
+		</div>
+    </div>  
+</section>
+
+{% endblock %}
