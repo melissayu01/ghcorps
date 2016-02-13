@@ -5,26 +5,38 @@
 <head>
     <!--- Basic Page Needs ================================================== -->
     <meta charset="utf-8">
-    <title>CS50 | {% block title %}{% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GHCorps | {% block title %}{% endblock %}</title>
     <meta name="description" content="">  
     <meta name="author" content="">
 
     <!-- Mobile Specific Metas ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!-- Material Design fonts -->
+  	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- CSS ================================================== -->
-    <link rel="stylesheet" href="{% static 'search/css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'search/css/main.css' %}">
-    <link rel="stylesheet" href="{% static 'search/css/media-queries.css' %}"> 
+    <!-- Bootstrap -->
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Bootstrap Material Design -->
+	<link href="{% static 'portal/css/bootstrap-material-design.css' %}" rel="stylesheet">
+	<link href="{% static 'portal/css/bootstrap-material-design.min.css' %}" rel="stylesheet">
+	<link href="{% static 'portal/css/ripples.min.css' %}" rel="stylesheet">
+	<link href="{% static 'portal/css/ripples.css' %}" rel="stylesheet">
+
+	<link href="//fezvrasta.github.io/snackbarjs/dist/snackbar.min.css" rel="stylesheet">
 
     <!-- Script =================================================== -->
-    <script src="{% static 'search/js/modernizr.js' %}"></script>
+    <script src="{% static 'portal/js/modernizr.js' %}"></script>
 </head>
 
 <body>
 	<div id="preloader"> 
 		<div id="status">
-			<img src="{% static 'search/images/loader.gif' %}" height="60" width="60" alt="">
+			<img src="{% static 'portal/images/loader.gif' %}" height="60" width="60" alt="">
 			<div class="loader">Loading...</div>
 		</div>
 	</div>
@@ -130,12 +142,12 @@
 		</footer> <!-- /footer -->
 	{% endblock %}
 
-	<script src="{% static 'search/js/jquery-1.11.3.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'search/js/jquery-migrate-1.2.1.min.js' %}"></script>
-	<script src="{% static 'search/js/jquery.flexslider.js' %}"></script>
-	<script src="{% static 'search/js/jquery.fittext.js' %}"></script>
-	<script src="{% static 'search/js/backstretch.js' %}"></script> 
-	<script src="{% static 'search/js/waypoints.js' %}"></script>
-	<script src="{% static 'search/js/main.js' %}"></script>
+	<script src="{% static 'portal/js/jquery-1.11.3.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'portal/js/jquery-migrate-1.2.1.min.js' %}"></script>
+	<script src="{% static 'portal/js/jquery.flexslider.js' %}"></script>
+	<script src="{% static 'portal/js/jquery.fittext.js' %}"></script>
+	<script src="{% static 'portal/js/backstretch.js' %}"></script> 
+	<script src="{% static 'portal/js/waypoints.js' %}"></script>
+	<script src="{% static 'portal/js/main.js' %}"></script>
 </body>
 </html>
