@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^thanks/$', populate_user_created),
     url(r'^logout/$', populate_logout),
     url(r'^static/(.*)', return_static_file),
-    url(r'^login/?next=(.*)$', populate_login),
+    url(r'^accounts/login/?next=(.*)$', populate_login),
 ]
 """
     url(r'^$', views.populate_home_page),
