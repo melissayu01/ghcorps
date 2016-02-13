@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^login/$', views.populate_login),
     url(r'^logout/$', views.populate_logout),
     url(r'^static/(.*)', views.return_static_file),
+    url(r'^profile/$', views.temp),
 ]

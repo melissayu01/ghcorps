@@ -13,7 +13,10 @@
                     </div>
                     <div class="row-content">
                         <h2>Phillip Yu{{ request.user.full_name}}</h2>
-                        <p class="list-group-item-text">jaskld;fjklawhgioweahg;slvavslwasndlgjwela;jgiorwahgosadljfsaldkfjklsdajglsahglhdalkghklsdajgklsdasdjkgbajskbgksalgbjksdhjkhsj {{request.user.about}}</p>
+                        <p class="list-group-item-text">
+                        Quisque blandit ipsum ex, non auctor mi lobortis non. Etiam nec ligula dapibus, auctor magna eu, finibus sapien. Vestibulum et diam non tortor porta iaculis.
+
+						{{request.user.about}}</p>
                     </div>
                 </div>
 				<div class="list-group-separator"></div>
@@ -25,7 +28,17 @@
 					</div>
 					<div class="row-content">
 						<div class="least-content">15m{{activity.rel_time}}</div>
-					    <h4 class="list-group-item-heading">you updated your profile!{{activity.text}}</h4>
+					    <h4 class="list-group-item-heading">you updated your profile{{activity.text}}</h4>
+					</div>
+				</div>
+
+				<div class="list-group-item">
+					<div class="row-action-primary">
+					    <i class="material-icons">notifications</i>
+					</div>
+					<div class="row-content">
+						<div class="least-content">14h{{activity.rel_time}}</div>
+					    <h4 class="list-group-item-heading">you added a job at Jane Street{{activity.text}}</h4>
 					</div>
 				</div>
 
@@ -35,7 +48,7 @@
 					</div>
 					<div class="row-content">
 						<div class="least-content">15m{{activity.rel_time}}</div>
-					    <h4 class="list-group-item-heading">you updated your profile!{{activity.text}}</h4>
+					    <h4 class="list-group-item-heading">a connection endorsed you {{activity.text}}</h4>
 					</div>
 				</div>
 
@@ -44,40 +57,11 @@
 					    <i class="material-icons">notifications</i>
 					</div>
 					<div class="row-content">
-						<div class="least-content">15m{{activity.rel_time}}</div>
-					    <h4 class="list-group-item-heading">you updated your profile!{{activity.text}}</h4>
+						<div class="least-content">14h{{activity.rel_time}}</div>
+					    <h4 class="list-group-item-heading">you added an internship at 3Red{{activity.text}}</h4>
 					</div>
 				</div>
 
-				<div class="list-group-item">
-					<div class="row-action-primary">
-					    <i class="material-icons">notifications</i>
-					</div>
-					<div class="row-content">
-						<div class="least-content">15m{{activity.rel_time}}</div>
-					    <h4 class="list-group-item-heading">you updated your profile!{{activity.text}}</h4>
-					</div>
-				</div>
-
-				<div class="list-group-item">
-					<div class="row-action-primary">
-					    <i class="material-icons">notifications</i>
-					</div>
-					<div class="row-content">
-						<div class="least-content">15m{{activity.rel_time}}</div>
-					    <h4 class="list-group-item-heading">you updated your profile!{{activity.text}}</h4>
-					</div>
-				</div>
-
-				<div class="list-group-item">
-					<div class="row-action-primary">
-					    <i class="material-icons">notifications</i>
-					</div>
-					<div class="row-content">
-						<div class="least-content">15m{{activity.rel_time}}</div>
-					    <h4 class="list-group-item-heading">you updated your profile!{{activity.text}}</h4>
-					</div>
-				</div>
 				<!-- END TESTING -->
 
 				{% for activity in self_activity_list %}

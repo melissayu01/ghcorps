@@ -16,7 +16,7 @@
             <!-- News from GHCorps -->
             <div class="jumbotron">
                 <h1>A Community Dedicated to Change</h1>
-                <em><p>Global Health Corps Portal</p></em>
+                <em><p>Global Health Corps Blog</p></em>
 
                 <p>This is where you might feature news or recent blog posts
                 from GHCorps about recent international development efforts. The first part of the
@@ -42,65 +42,7 @@
                 <div class="list-group">
                     
                     <!-- FOR TESTING -->
-                    <div class="list-group-item">
-                        <div class="row-picture">
-                            <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
-                        </div>
-                        <div class="row-content">
-                            <div class="least-content">15m{{activity.rel_time}}</div>
-                            <h2>Cisco Rivera{{ request.user.full_name}}</h2>
-                            <p class="list-group-item-text">jaskld;fjklawhgioweahg;slvavslwasndlgjwela;jgiorwahgosadkhsj {{request.user.about}}</p>
-                        </div>
-                    </div>
-                    <div class="list-group-separator"></div>
-
-                    <div class="list-group-item">
-                        <div class="row-picture">
-                            <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
-                        </div>
-                        <div class="row-content">
-                            <div class="least-content">15m{{activity.rel_time}}</div>
-                            <h2>Cisco Rivera{{ request.user.full_name}}</h2>
-                            <p class="list-group-item-text">jaskld;fjklawhgioweahg;slvavslwasndlgjwela;jgiorwahgosadkhsj {{request.user.about}}</p>
-                        </div>
-                    </div>
-                    <div class="list-group-separator"></div>
-
-                    <div class="list-group-item">
-                        <div class="row-picture">
-                            <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
-                        </div>
-                        <div class="row-content">
-                            <div class="least-content">15m{{activity.rel_time}}</div>
-                            <h2>Cisco Rivera{{ request.user.full_name}}</h2>
-                            <p class="list-group-item-text">jaskld;fjklawhgioweahg;slvavslwasndlgjwela;jgiorwahgosadkhsj {{request.user.about}}</p>
-                        </div>
-                    </div>
-                    <div class="list-group-separator"></div>
-
-                    <div class="list-group-item">
-                        <div class="row-picture">
-                            <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
-                        </div>
-                        <div class="row-content">
-                            <div class="least-content">15m{{activity.rel_time}}</div>
-                            <h2>Cisco Rivera{{ request.user.full_name}}</h2>
-                            <p class="list-group-item-text">jaskld;fjklawhgioweahg;slvavslwasndlgjwela;jgiorwahgosadkhsj {{request.user.about}}</p>
-                        </div>
-                    </div>
-                    <div class="list-group-separator"></div>
-
-                    <div class="list-group-item">
-                        <div class="row-picture">
-                            <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
-                        </div>
-                        <div class="row-content">
-                            <div class="least-content">15m{{activity.rel_time}}</div>
-                            <h2><a href="/users/{{ activity.user.username }}">Cisco{{ request.user.full_name}}</a></h2>
-                            <p class="list-group-item-text">jaskld;fjklawhgioweahg;slvavslwasndlgjwela;jgiorwahgosadkhsj {{request.user.about}}</p>
-                        </div>
-                    </div>
-                    <div class="list-group-separator"></div>
+                    
                     <!-- END TESTING -->
                     
                     {% for activity in activity_list %}
@@ -112,4 +54,5 @@
         </div>
     </div>
 </div>
+
 {% endblock %}

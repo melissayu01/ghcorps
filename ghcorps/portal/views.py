@@ -12,6 +12,9 @@ from forms import *
 def populate_home_page(request):
 	return render(request, 'index.html')
 
+def temp(request):
+	return render(request, 'long_profile.html')
+
 # render page for each club listing
 def populate_profile(request, user_id):
 	if not request.user.is_authenticated():
