@@ -21,6 +21,10 @@ def populate_home_page(request):
 		{'self_activity_list' : Activity.objects.filter(user__pk = request.user.pk),
 		 'activity_list' : lst})
 
+@login_required
+def populate_jobs(request):
+	return render(request, 'jobs.html', {'jobs': Job.objects.order_by('start_date')})
+
 def temp(request):
 	return render(request, 'long_profile.html')
 

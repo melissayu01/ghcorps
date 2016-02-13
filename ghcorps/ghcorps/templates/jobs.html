@@ -1,0 +1,16 @@
+<!-- Home page -->
+
+{% extends "base.html" %} 
+{% load staticfiles %}
+
+{% block title %} Fellowships {% endblock %} 
+
+{% block content %}
+<div class="page-header" id="banner">
+    <div class="row">
+        {% for job in jobs %}
+            {% include "job_fragment.html" %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
