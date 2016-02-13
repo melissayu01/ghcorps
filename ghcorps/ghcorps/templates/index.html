@@ -41,68 +41,6 @@
             <div class="bs-component">
                 <div class="list-group">
                     
-                    <!-- FOR TESTING -->
-                    <div class="list-group-item">
-                        <div class="row-picture">
-                            <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
-                        </div>
-                        <div class="row-content">
-                            <div class="least-content">15m{{activity.rel_time}}</div>
-                            <h2>Cisco Rivera{{ request.user.full_name}}</h2>
-                            <p class="list-group-item-text">jaskld;fjklawhgioweahg;slvavslwasndlgjwela;jgiorwahgosadkhsj {{request.user.about}}</p>
-                        </div>
-                    </div>
-                    <div class="list-group-separator"></div>
-
-                    <div class="list-group-item">
-                        <div class="row-picture">
-                            <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
-                        </div>
-                        <div class="row-content">
-                            <div class="least-content">15m{{activity.rel_time}}</div>
-                            <h2>Cisco Rivera{{ request.user.full_name}}</h2>
-                            <p class="list-group-item-text">jaskld;fjklawhgioweahg;slvavslwasndlgjwela;jgiorwahgosadkhsj {{request.user.about}}</p>
-                        </div>
-                    </div>
-                    <div class="list-group-separator"></div>
-
-                    <div class="list-group-item">
-                        <div class="row-picture">
-                            <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
-                        </div>
-                        <div class="row-content">
-                            <div class="least-content">15m{{activity.rel_time}}</div>
-                            <h2>Cisco Rivera{{ request.user.full_name}}</h2>
-                            <p class="list-group-item-text">jaskld;fjklawhgioweahg;slvavslwasndlgjwela;jgiorwahgosadkhsj {{request.user.about}}</p>
-                        </div>
-                    </div>
-                    <div class="list-group-separator"></div>
-
-                    <div class="list-group-item">
-                        <div class="row-picture">
-                            <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
-                        </div>
-                        <div class="row-content">
-                            <div class="least-content">15m{{activity.rel_time}}</div>
-                            <h2>Cisco Rivera{{ request.user.full_name}}</h2>
-                            <p class="list-group-item-text">jaskld;fjklawhgioweahg;slvavslwasndlgjwela;jgiorwahgosadkhsj {{request.user.about}}</p>
-                        </div>
-                    </div>
-                    <div class="list-group-separator"></div>
-
-                    <div class="list-group-item">
-                        <div class="row-picture">
-                            <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
-                        </div>
-                        <div class="row-content">
-                            <div class="least-content">15m{{activity.rel_time}}</div>
-                            <h2><a href="/users/{{ activity.user.username }}">Cisco{{ request.user.full_name}}</a></h2>
-                            <p class="list-group-item-text">jaskld;fjklawhgioweahg;slvavslwasndlgjwela;jgiorwahgosadkhsj {{request.user.about}}</p>
-                        </div>
-                    </div>
-                    <div class="list-group-separator"></div>
-                    <!-- END TESTING -->
-                    
                     {% for activity in activity_list %}
                         {% include "activity_fragment.html" %}
                     {% endfor %}
