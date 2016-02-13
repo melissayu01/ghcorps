@@ -65,5 +65,21 @@ class NewApplication(forms.Form):
         widget = forms.TextInput(attrs={'placeholder': 'Your response to essay 2 here.'}))
 
 class PostJob(forms.Form):
-    
+    title = forms.CharField(label='Title', max_length=150,
+        widget=forms.TextInput(attrs={'placeholder': 'Job title here.'}))
+    content = forms.CharField(label='Content', max_length=4000,
+        widget = forms.TextInput(attrs={'placeholder': 'Your post here.'}))
+    start_date = forms.CharField(label='Start Date', max_length=30,
+        widget=forms.TextInput(attrs={'placeholder': 'Job start date here.'}))
+    end_date = forms.CharField(label='End Date', max_length=30,
+        widget=forms.TextInput(attrs={'placeholder': 'Job end date here.'}))
+    salary = forms.IntegerField()
+    location = forms.CharField(label='Location', max_length=50,
+        widget=forms.TextInput(attrs={'placeholder': 'Job location here.'}))
+    qualifications = forms.CharField(label='Qualifications', max_length=500,
+        widget = forms.TextInput(attrs={'placeholder': 'Job qualifications here.'}))
+    essay1 = forms.CharField(label='Essay 1 Topic', max_length=500,
+        widget = forms.TextInput(attrs={'placeholder': 'Essay 1 topic here. What do you want to ask?'}))
+    essay2 = forms.CharField(label='Essay 2 Topic', max_length=500,
+        widget = forms.TextInput(attrs={'placeholder': 'Essay 2 topic here. What do you want to ask?'}))
 
