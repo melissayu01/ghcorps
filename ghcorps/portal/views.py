@@ -18,7 +18,7 @@ def populate_home_page(request):
 	else:
 		lst = Activity.objects.exclude(user__pk = request.user.pk).order_by('-dt')[:10]
 	return render(request, 'index.html', 
-		{'self_activity_list' : Activity.objects.filter(user__pk = request.user.pk),
+		{'self_activity_list' : Activity.objects.filter(user__pk = request.user.pk).order_by('-dt'),
 		 'activity_list' : lst})
 
 @login_required

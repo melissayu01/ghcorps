@@ -97,7 +97,7 @@ class Post (models.Model):
         if diff < datetime.timedelta(minutes=1):
             return "%i seconds" % diff.seconds
         elif diff < datetime.timedelta(minutes=60):
-            return "%i minutes" % diff.minutes
+            return "%i minutes" % int(diff.total_seconds()/60)
         elif diff <= datetime.timedelta(hours=23):
             return "%i hours" % int(diff.total_seconds()/3600)
         elif diff < datetime.timedelta(days=31):
@@ -127,7 +127,7 @@ class Reply (models.Model):
         if diff < datetime.timedelta(minutes=1):
             return "%i seconds" % diff.seconds
         elif diff < datetime.timedelta(minutes=60):
-            return "%i minutes" % diff.minutes
+            return "%i minutes" % int(diff.total_seconds()/60)
         elif diff <= datetime.timedelta(hours=23):
             return "%i hours" % int(diff.total_seconds()/3600)
         elif diff < datetime.timedelta(days=31):
@@ -172,7 +172,7 @@ class Activity (models.Model):
         if diff < datetime.timedelta(minutes=1):
             return "%i seconds" % diff.seconds
         elif diff < datetime.timedelta(minutes=60):
-            return "%i minutes" % diff.minutes
+            return "%i minutes" % int(diff.total_seconds()/60)
         elif diff <= datetime.timedelta(hours=23):
             return "%i hours" % int(diff.total_seconds()/3600)
         elif diff < datetime.timedelta(days=31):

@@ -4,7 +4,7 @@
     </div>
     <div class="row-content">
         <div class="least-content">{{activity.rel_time}}</div>
-        <h2><a href="/profile/{{ activity.user.username }}">{{ request.user.first_name}} {{ request.user.last_name}}</a></h2>
+        <h2><a href="/profile/{{ activity.user.username }}">{{ activity.user.first_name}} {{ activity.user.last_name}}</a></h2>
         <p class="list-group-item-text">{{activity.text}}</p>
     </div>
 </div>

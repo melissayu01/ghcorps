@@ -16,19 +16,19 @@
 			
 			<br>
 			<div class="col-sm-2"></div>
-			<a href="{{ request.user.userextra.twitter }}" class="btn btn-danger btn-fab"><i class="material-icons">poll</i></a>
-			<a href="{{ request.user.userextra.fb }}" class="btn btn-success btn-fab"><i class="material-icons">group</i></a>
-			<a href="{{ request.user.userextra.linkedin }}" class="btn btn-warning btn-fab"><i class="material-icons">public</i></a>
+			<a href="{{ user.userextra.twitter }}" class="btn btn-danger btn-fab"><i class="material-icons">poll</i></a>
+			<a href="{{ user.userextra.fb }}" class="btn btn-success btn-fab"><i class="material-icons">group</i></a>
+			<a href="{{ user.userextra.linkedin }}" class="btn btn-warning btn-fab"><i class="material-icons">public</i></a>
 		</div>
 
 		<!-- Name and About -->
 		<div class="col-sm-8">
-		    <h1>{{ request.user.first_name }} {{ request.user.last_name }}</h1>
+		    <h1>{{ user.first_name }} {{ user.last_name }}</h1>
 		    <div class="progress">
                 <div class="progress-bar progress-bar-info" style="width: 80%"></div>
             </div>
 		    <p class="lead">
-		   {{ request.user.userextra.about }}</p>
+		   {{ user.userextra.about }}</p>
 		</div>
 
     </div>
