@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 import django.contrib.auth.models as authmodels
+from django.contrib.auth.models import User
 import datetime
 import pytz
 
@@ -20,7 +21,8 @@ def format_day(dt):
                           dt.day,
                           dt.year)
 
-class User (authmodels.User):
+class UserExtra (models.Model):
+    u = models.OneToOneField(User)
     fb = models.CharField(max_length = 200)
     linkedin = models.CharField(max_length = 200)
     twitter = models.CharField(max_length = 200)

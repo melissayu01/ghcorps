@@ -4,8 +4,8 @@
     </div>
     <div class="row-content">
         <div class="least-content">{{activity.rel_time}}</div>
-        <h2><a href="/users/{{ activity.user.username }}">{{ request.user.full_name}}</a></h2>
-        <p class="list-group-item-text">{{request.user.about}}</p>
+        <h2><a href="/users/{{ activity.user.username }}">{{ request.user.first_name}} {{ request.user.last_name}}</a></h2>
+        <p class="list-group-item-text">{{activity.text}}</p>
     </div>
 </div>
 <div class="list-group-separator"></div>

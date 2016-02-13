@@ -13,9 +13,13 @@ from models import *
 # render home page
 @login_required
 def populate_home_page(request):
+	if Activity.objects.count() <= 10:
+		lst = Activity.objects.all().order_by('-dt')
+	else:
+		lst = Activity.objects.all().order_by('-dt')[:10]
 	return render(request, 'index.html', 
 		{'self_activity_list' : Activity.objects.filter(user__pk = request.user.pk),
-		 'activity_list' : Activity.objects.all().order_by('-dt')[:10]})
+		 'activity_list' : lst})
 
 # render page for each club listing
 def populate_profile(request, user_id):
