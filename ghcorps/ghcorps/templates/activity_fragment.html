@@ -1,7 +1,15 @@
-<div class="well">
-<p> <h3> <a href="/users/{{ activity.user.username }}">{{ activity.user.full_name }}</a> </h3> ({{ activity.rel_time }}) </p>
-<p> {{ activity.user.text }}
+<div class="list-group-item">
+    <div class="row-picture">
+        <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+    </div>
+    <div class="row-content">
+        <div class="least-content">{{activity.rel_time}}</div>
+        <h2><a href="/users/{{ activity.user.username }}">{{ request.user.full_name}}</a></h2>
+        <p class="list-group-item-text">{{request.user.about}}</p>
+    </div>
 </div>
+<div class="list-group-separator"></div>
+
 
 <!-- Things that you can use from activity
 activity.user (the user object of who did it, 
