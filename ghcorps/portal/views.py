@@ -13,10 +13,10 @@ from models import *
 # render home page
 @login_required
 def populate_home_page(request):
-	if Activity.objects.count() <= 10:
-		lst = Activity.objects.all().order_by('-dt')
+	if Activity.objects.exclude(user__pk = request.user.pk) <= 10:
+		lst = Activity.objects.exclude(user__pk = request.user.pk).order_by('-dt')
 	else:
-		lst = Activity.objects.all().order_by('-dt')[:10]
+		lst = Activity.objects.exclude(user__pk = request.user.pk).order_by('-dt')[:10]
 	return render(request, 'index.html', 
 		{'self_activity_list' : Activity.objects.filter(user__pk = request.user.pk),
 		 'activity_list' : lst})
@@ -24,19 +24,20 @@ def populate_home_page(request):
 def temp(request):
 	return render(request, 'long_profile.html')
 
-# render page for each club listing
+@login_required
 def populate_profile(request, user_id):
 	if not request.user.is_authenticated():
 		return HttpResponseRedirect('/login/')
-	user_id = int(user_id)
 
 	# ensure person exists
 	try:
-		user = User.objects.get(pk=user_id)
+		user = User.objects.get(username=user_id)
 	except:
 		raise Http404("User " + str(user_id) + " does not exist.")
 		
-	return render(request, 'long_profile.html', {'user': user})
+	return render(request, 'long_profile.html', {'user': user, 
+		'self_activities' : Activity.objects.filter(user__pk = user.pk),
+		'self_jobs' : Job.objects.filter(user__pk = user.pk)})
 
 # log out user
 def populate_logout(request):
