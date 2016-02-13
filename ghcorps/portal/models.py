@@ -42,6 +42,10 @@ class Post (models.Model):
     dt = models.DateTimeField(auto_now_add = True)
 
     @property
+    def content_preview(self):
+        return self. content_preview
+    
+    @property
     def rel_time(self):
         now = datetime.datetime.now()
         months = ['Jan', 'Feb', 'Mar', 'Apr',
@@ -95,6 +99,7 @@ class Activity (models.Model):
     user = models.ForeignKey(User)
     text = models.TextField()
     dt = models.DateTimeField(auto_now_add = True)
+    category = models.CharField(max_length=20)
 
     @property
     def rel_time(self):
