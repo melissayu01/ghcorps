@@ -5,11 +5,17 @@ import django.contrib.auth.models as authmodels
 
 # Create your models here.
 
+def rename_file(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = os.path.join(os.getcwd(), 'portal/static/portal/images/profiles/%s.%s' % (instance.username, ext))
+    return filename
+
 class User (authmodels.User):
     fb = models.CharField(max_length = 200)
     linkedin = models.CharField(max_length = 200)
     twitter = models.CharField(max_length = 200)
     about = models.TextField()
+    prof_pic = models.ImageField(upload_to=rename_file, max_length=300)
 
 class Job (models.Model):
     title = models.CharField(max_length=150)
