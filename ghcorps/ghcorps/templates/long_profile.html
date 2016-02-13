@@ -1,35 +1,132 @@
 {% extends "base.html" %}
-
 {% load staticfiles %}
 
 {% block title %} Profile {% endblock %}
 
 {% block content %}
 
-<div class="jumbotron">
+<p><br><br><br></p>
 
-    <p> <img src="{% static "my_app/myexample.jpg" %}" alt="Prof Pic"/>
-    <h1> {{ request.user.full_name }} </h1> </p>
+<div class="page-header" id="banner">
+    <div class="row">
 
-    <p> {{ request.user.about }} </p>
+		<!-- Prof Pic -->
+		<div class="col-sm-4">
+			<img src="{% static "portal/imgs/prof_pic.png" %}" alt="Prof Pic"/><br>
+			
+			<br>
+			<div class="col-sm-2"></div>
+			<a href="{{ request.user.twitter }}" class="btn btn-danger btn-fab"><i class="material-icons">poll</i></a>
+			<a href="{{ request.user.fb }}" class="btn btn-success btn-fab"><i class="material-icons">group</i></a>
+			<a href="{{ request.user.linkedin }}" class="btn btn-warning btn-fab"><i class="material-icons">public</i></a>
+		</div>
+
+		<!-- Name and About -->
+		<div class="col-sm-8">
+		    <h1>Melissa Yu{{ request.user.full_name }}</h1>
+		    <div class="progress">
+                <div class="progress-bar progress-bar-info" style="width: 80%"></div>
+            </div>
+		    <p class="lead">
+		    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque laoreet enim vel ornare ornare. Nulla elementum neque elit, in lobortis tellus aliquam eget. Nunc pulvinar tellus a diam sagittis laoreet. Vestibulum ultricies ante purus, ac consectetur turpis consequat at. Suspendisse fringilla sapien purus, vitae pretium velit porttitor non. Nullam venenatis leo ipsum, vitae bibendum lorem dignissim non. Duis dapibus eros ligula. Donec quam mi, finibus at nunc at, consectetur ultricies leo.
+		    {{ request.user.about }}</p>
+		</div>
+
+    </div>
 </div>
 
-<h2> Recent Activity </h2>
+<!-- Recent Activity -->
+<div class="col-sm-6">
+	<div class="jumbotron">
+	  	<h3>Recent Activity</h3>
+	  	<div class="bs-component">
+            <div class="list-group">
+				
+				<div class="progress">
+                    <div class="progress-bar progress-bar-success" style="width: 30%"></div>
+                </div>
 
-<div class ="jumbotron">
-{% for activity in self_activities %}
-    {% include "self_activity_fragment.html" %}
-{% endfor %}
+            	<!-- FOR TESTING -->
+		        <div class="list-group-item">
+					<div class="row-action-primary">
+					    <i class="material-icons">notifications</i>
+					</div>
+					<div class="row-content">
+						<div class="least-content">15m{{activity.rel_time}}</div>
+					    <h4 class="list-group-item-heading">you updated your profile{{activity.text}}</h4>
+					</div>
+				</div>
+
+				<div class="list-group-item">
+					<div class="row-action-primary">
+					    <i class="material-icons">notifications</i>
+					</div>
+					<div class="row-content">
+						<div class="least-content">14h{{activity.rel_time}}</div>
+					    <h4 class="list-group-item-heading">you added a new job at Jane Street{{activity.text}}</h4>
+					</div>
+				</div>
+		        <!-- END TESTING -->
+
+			  	{% for activity in self_activities %}
+			    	{% include "self_activity_fragment.html" %}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
 </div>
 
-<h2> Jobs Fulfilled </h2>
+<!-- Jobs Fulfilled -->
+<div class="col-sm-6">
+	<div class="jumbotron">
+		<h3>Jobs Fulfilled</h3>
+		<div class="bs-component">
+            <div class="list-group">
+				
+				<div class="progress">
+                    <div class="progress-bar progress-bar-warning" style="width: 30%"></div>
+                </div>
 
-<div class="jumbotron">
+            	<!-- FOR TESTING -->
+				<div class="list-group-item">
+				    <div class="row-action-primary">
+				        <i class="material-icons">work</i>
+				    </div>
+				    <div class="row-content">
+				        <div class="least-content">Jan 2 1996- Dec 27 2005{{ job.date_range }}</div>
+				        <h4 class="list-group-item-heading">Product Manager{{job.title}}</h4>
+				    </div>
+				    <div class="row-content">
+				        Sed blandit consectetur neque eu iaculis. Sed elementum purus a ipsum sagittis porta. Nam placerat placerat quam nec mollis. Praesent maximus ullamcorper est, vitae tempus eros malesuada sed. Sed vel fermentum erat. Quisque sagittis laoreet erat in mattis. Nullam ultrices lobortis magna vitae imperdiet. Suspendisse consequat lobortis varius. Nam rutrum, nunc id tincidunt gravida, eros est viverra ex, fermentum faucibus elit est eu ligula. Mauris at magna nisl. Aliquam porttitor turpis consectetur enim mattis, quis viverra lacus egestas. Praesent in semper quam. Donec id gravida leo, a interdum tellus. Fusce ullamcorper a metus non lacinia. Nulla facilisi.
 
-    {% for job in self_jobs %}
-        {% include "job_fragment.html"}
-    {% endfor %}
+						{{ job.description }}
+				    </div>
+				</div> <br><br>
 
+				<div class="list-group-item">
+				    <div class="row-action-primary">
+				        <i class="material-icons">work</i>
+				    </div>
+				    <div class="row-content">
+				        <div class="least-content">Jan 2 1996- Dec 27 2005{{ job.date_range }}</div>
+				        <h4 class="list-group-item-heading">Software Engineering Intern{{job.title}}</h4>
+				    </div>
+				    <div class="row-content">
+				        Sed blandit consectetur neque eu iaculis. Sed elementum purus a ipsum sagittis porta. Nam placerat placerat quam nec mollis. Praesent maximus ullamcorper est, vitae tempus eros malesuada sed. Sed vel fermentum erat. Quisque sagittis laoreet erat in mattis. Nullam ultrices lobortis magna vitae.
+
+						{{ job.description }}
+				    </div>
+				</div>
+		        <!-- END TESTING -->
+
+			    {% for job in self_jobs %}
+			        {% include "job_fragment.html"}
+			    {% endfor %}
+			</div>
+		</div>
+	</div>
 </div>
 
 {% endblock %}
+
+

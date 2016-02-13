@@ -21,6 +21,9 @@ def populate_home_page(request):
 		{'self_activity_list' : Activity.objects.filter(user__pk = request.user.pk),
 		 'activity_list' : lst})
 
+def temp(request):
+	return render(request, 'long_profile.html')
+
 # render page for each club listing
 def populate_profile(request, user_id):
 	if not request.user.is_authenticated():
