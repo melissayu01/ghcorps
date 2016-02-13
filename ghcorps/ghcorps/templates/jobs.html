@@ -6,11 +6,40 @@
 {% block title %} Fellowships {% endblock %} 
 
 {% block content %}
+<p><br><br><br></p>
+
 <div class="page-header" id="banner">
     <div class="row">
-        {% for job in jobs %}
-            {% include "job_fragment.html" %}
-        {% endfor %}
+    
+    <h1>Fellowship Positions</h1>
+    <div class="progress">
+        <div class="progress-bar progress-bar-warning" style="width: 80%"></div>
+    </div>
+
+	<table class="table table-striped table-hover ">
+	<thead>
+	<tr>
+		<th>#</th>
+		<th>Date Range</th>
+		<th>Position</th>
+		<th>Description</th>
+	</tr>
+	</thead>
+	<tbody>
+
+  	{% for job in jobs %}
+	<tr onclick="window.document.location='#';">
+		<td><a href="/{{job}}/{{job.pk}}">1</a></td>
+		<td><a href="/{{job}}/{{job.pk}}">{{job.date_range}}</a></td>
+		<td><a href="/{{job}}/{{job.pk}}">{{job.title}}</a></td>
+		<td><a href="/{{job}}/{{job.pk}}">{{ job.description }}</a></td>
+	</tr>
+  	{% endfor %}
+
+  </tbody>
+</table>
+
     </div>
 </div>
+
 {% endblock %}
