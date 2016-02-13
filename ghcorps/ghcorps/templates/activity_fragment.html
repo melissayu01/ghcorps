@@ -1,0 +1,13 @@
+<div class="well">
+<p> <h3> <a href="/users/{{ activity.user.username }}">{{ activity.user.full_name }}</a> </h3> ({{ activity.rel_time }}) </p>
+<p> {{ activity.user.text }}
+</div>
+
+<!-- Things that you can use from activity
+activity.user (the user object of who did it, 
+    in particular can access user.username and user.full_name, 
+    or user.first_name)
+activity.text (description of what this activity was)
+activity.dt (not recommended, see relative time below)
+activity.rel_time (relative time to when you're accessing it, i.e. 2hrs ago, 3 days, etc)
+-->
