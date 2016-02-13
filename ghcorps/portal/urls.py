@@ -5,7 +5,6 @@ from django.contrib.auth import login
 from models import *
 
 urlpatterns = [
-<<<<<<< HEAD
     url(r'^$', populate_home_page),
     url(r'^login/$', populate_login),
     url(r'^profile/([0-9]+)$', populate_profile),
@@ -16,7 +15,7 @@ urlpatterns = [
     url(r'^logout/$', populate_logout),
     url(r'^static/(.*)', return_static_file),
 ]
-=======
+"""
     url(r'^$', views.populate_home_page),
     url(r'^profile/([0-9]+)$', views.populate_profile),
     # url(r'^forum/([0-9]+)', views.populate_forum),
@@ -27,5 +26,4 @@ urlpatterns = [
     url(r'^logout/$', views.populate_logout),
     url(r'^static/(.*)', views.return_static_file),
     url(r'^profile/$', views.temp),
-]
->>>>>>> melissa
+]"""
