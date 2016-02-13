@@ -25,7 +25,7 @@ class Job (models.Model):
     salary = models.PositiveIntegerField()
     location = models.CharField(max_length = 50)
     qualifications = models.TextField(max_length = 500)
-    user = models.ForeignKey(user)
+    user = models.ForeignKey(User)
     essay1 = models.TextField()
     essay2 = models.TextField()
 
@@ -41,7 +41,7 @@ class Reply (models.Model):
     user = models.ForeignKey(User)
     dt = models.DateTimeField(auto_now_add = True)
 
-class Activity = (models.Model):
+class Activity (models.Model):
     user = models.ForeignKey(User)
     text = models.TextField()
     dt = models.DateTimeField(auto_now_add = True)
