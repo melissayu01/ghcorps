@@ -1,0 +1,7 @@
+<!-- code snippet to display for club listing in index.html -->
+
+<a href="search/club/{{club.id}}">
+    <div class="tab-whole six columns"><strong>{{forloop.counter}}. {{club.name}}</strong></div>
+    <div class="tab-whole three columns">{{ club.genre.all }}</div>
+    <div class="tab-whole three columns">{{ club.overall_rating }}</div>
+</a>

@@ -1,0 +1,17 @@
+<!-- Notification page for submitted review, extends base_account.html -->
+
+{% extends "base_account.html" %}
+
+{% block title %} Thanks! {% endblock title %}
+
+{% block section %}register{% endblock %}
+
+{% block page_title %}Thanks{% endblock %}
+
+{% block rec %} 
+  Your review has been submitted! 
+{% endblock %}
+
+{% block form %}
+	<h5><a href="/">Go back to the home page.</a></h5>
+{% endblock %}
