@@ -4,13 +4,18 @@ from portal.models import *
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 # from django.db.models import 
 from forms import *
+from models import *
 # from decimal import Decimal
 
 # render home page
+@login_required
 def populate_home_page(request):
-	return render(request, 'index.html')
+	return render(request, 'index.html', 
+		{'self_activity_list' : Activity.objects.filter(user__pk = request.user.pk),
+		 'activity_list' : Activity.objects.all().order_by('-dt')[:10]})
 
 # render page for each club listing
 def populate_profile(request, user_id):
