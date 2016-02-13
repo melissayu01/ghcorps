@@ -2099,8 +2099,8 @@ legend {
 .list-group .list-group-item .row-picture label,
 .list-group .list-group-item .row-action-primary label {
   display: block;
-  width: 56px;
-  height: 56px;
+  width: 112px;
+  height: 112px;
 }
 .list-group .list-group-item .row-picture img,
 .list-group .list-group-item .row-action-primary img {

@@ -2,148 +2,106 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lang="en">
+
 <head>
     <!--- Basic Page Needs ================================================== -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>GHCorps | {% block title %}{% endblock %}</title>
-    <meta name="description" content="">  
+    <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Mobile Specific Metas ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
+
     <!-- Material Design fonts -->
-  	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- CSS ================================================== -->
-    <!-- Bootstrap -->
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'portal/css/bootstrap-material-design.min.css' %}" rel="stylesheet">
+    <link href="{% static 'portal/css/ripples.min.css' %}" rel="stylesheet">
 
-	<!-- Bootstrap Material Design -->
-	<link href="{% static 'portal/css/bootstrap-material-design.min.css' %}" rel="stylesheet">
-	<link href="{% static 'portal/css/ripples.min.css' %}" rel="stylesheet">
-
-	<link href="//fezvrasta.github.io/snackbarjs/dist/snackbar.min.css" rel="stylesheet">
+    <link href="//fezvrasta.github.io/snackbarjs/dist/snackbar.min.css" rel="stylesheet">
 </head>
 
 <body>
-	<div id="preloader"> 
-		<div id="status">
-			<img src="{% static 'portal/images/loader.gif' %}" height="60" width="60" alt="">
-			<div class="loader">Loading...</div>
-		</div>
-	</div>
+    <div class="container">
 
-	<!-- Navigation header =================================================== -->
-	<header id="main-header">
+        <!-- Navigation header =================================================== -->
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
 
-   	<div class="row header-inner">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/#">Global Health Corps Portal</a>
+                </div>
 
-	    <nav id="nav-wrap">         
-	         
-	        <a class="mobile-btn" href="#nav-wrap" title="Show navigation">
-	         	<span class='menu-text'>Show Menu</span>
-	         	<span class="menu-icon"></span>
-	        </a>
-         	<a class="mobile-btn" href="#" title="Hide navigation">
-         		<span class='menu-text'>Hide Menu</span>
-         		<span class="menu-icon"></span>
-         	</a>         
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/#">Home</a></li>
+                        <li><a href="/forum">Forums</a></li>
+                        <li><a href="/jobs">Fellowships</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="http://ghcorps.org/">GHCorps</a></li>
 
-	        <ul id="nav" class="nav">
-			    {% block navigation %}
-			    	<li class="current"><a href="/">YuGuide.</a></li>
-				    {% if request.user.is_authenticated %}
-				    	<li><a href="/search/">Search</a></li>
-						<li><a href="/logout/">Logout</a></li>
-					{% else %}
-						<li><a href="/register/">Register</a></li>
-						<li><a href="/login/">Login</a></li>
-					{% endif %}
-				{% endblock %}
-	        </ul> 
+                        <li class="dropdown">
+                            <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Profile
+                  <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/profile/{{ request.user.username }}">Profile</a></li>
+                                <li><a href="/profile/settings">Settings</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/logout">Sign out</a></li>
+                            </ul>
+                        </li>
 
-	      	</nav> <!-- /nav-wrap -->	      
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!--/.container-fluid -->
 
-	    </div> <!-- /header-inner -->
+        </nav>
 
-    </header>
+        <!-- Page Title =================================================== -->
+        {% block header %}{% endblock %}
 
-	<!-- Page Title	=================================================== -->
-	{% block header %} 
-	    <section id="page-title">	
-	   	  
-			<div class="row">
+        <!-- Page Content =================================================== -->
+        {% block content %}{% endblock %}
 
-				<div class="twelve columns">
+        <!-- Footer =================================================== -->
+        {% block footer %}{% endblock %}
 
-					<h1>YuGuide<span>.</span></h1>
-					
-				</div>			    
-
-			</div> <!-- /row -->	   
-
-	   </section> <!-- /page-title -->
-	{% endblock %}
-
-	<!-- Page Content =================================================== -->
-	{% block content %}{% endblock %}
-
-	<!-- Footer =================================================== -->
-	{% block footer %}
-		<footer>
-			<div class="row">       
-				<div class="six columns tab-whole footer-about">
-				    <h3>About the YuGuide</h3>
-					<p>The YuGuide is a listing of all the clubs at Harvard -- complete with ratings, reviews, and much, much, more. Who needs the Q-guide when we have the YuGuide? </p>
-				</div> <!-- /footer-about -->
-
-				<div class="six columns tab-whole right-cols">
-
-					<div class="row">
-
-						<div class="columns">
-							<h3 class="address">Contact Us</h3>
-							<p>
-							Harvard University<br>
-							Cambridge, MA 02138
-							</p>
-
-							<ul>
-								<li><a href="mailto:melissayu@college.harvard.edu">melissayu@college.harvard.edu</a></li>
-								<li><a href="mailto:phillipyu@college.harvard.edu">phillipyu@college.harvard.edu</a></li>
-							</ul>                  
-						</div> <!-- /columns -->             
-
-						<div class="columns last">
-							<h3 class="contact">Follow Us</h3>
-							<ul>
-								<li><a href="#">This will be updated</a></li>
-								<li><a href="#">once we are on</a></li>
-								<li><a href="#">social media.</a></li>
-							</ul>
-					    </div> <!-- /columns --> 
-					</div> <!-- /Row(nested) -->
-				</div>
-
-				<p class="copyright">&copy; Copyright 2015 YuGuide. Design by <a href="http://www.styleshout.com/">Styleshout.</a></p>        
-
-				<div id="go-top">
-					<a class="smoothscroll" title="Back to Top" href="/#page-title"><span>Top</span><i class="fa fa-long-arrow-up"></i></a>
-				</div>
-			</div> <!-- /row -->
-		</footer> <!-- /footer -->
-	{% endblock %}
-
+    </div>
     <!-- Script =================================================== -->
-	<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-	<script src="dist/js/ripples.min.js"></script>
-	<script src="dist/js/material.min.js"></script>
-	<script src="//fezvrasta.github.io/snackbarjs/dist/snackbar.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>
+    <script src="{% static 'portal/js/ripples.min.js' %}"></script>
+    <script src="{% static 'portal/js/material.min.js' %}"></script>
+    <script src="//fezvrasta.github.io/snackbarjs/dist/snackbar.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>
+
+    <link href="{% static 'portal/css/bootstrap-material-design.min.css' %}" rel="stylesheet">
+
+    <!-- Bootstrap core JavaScript ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
+
 </html>
