@@ -28,9 +28,10 @@
 
 <body>
     <div class="container">
-
+        
         <!-- Navigation header =================================================== -->
         <!-- Fixed navbar -->
+        {% block nav %}
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
 
@@ -69,8 +70,8 @@
                 <!--/.nav-collapse -->
             </div>
             <!--/.container-fluid -->
-
         </nav>
+        {% endblock %}
 
         <!-- Page Title =================================================== -->
         {% block header %}{% endblock %}

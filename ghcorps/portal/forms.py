@@ -47,6 +47,12 @@ class NewUser(forms.Form):
         new_user.about = self.cleaned_data['about']
         new_user.save()
 
+# creates login form fields
+class LogIn(forms.Form):
+    username = forms.CharField(label='Username', max_length=30, 
+        widget=forms.TextInput(attrs={'placeholder': 'Username'}))
+    password = forms.CharField(max_length=32, widget=(forms.PasswordInput(render_value=False, attrs={'placeholder': 'Password'})))
+    
 class NewPost(forms.Form):
 
     subject = forms.CharField(label='Subjects', max_length=100,
