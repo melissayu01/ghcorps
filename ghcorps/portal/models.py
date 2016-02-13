@@ -154,7 +154,7 @@ class Activity (models.Model):
     category = models.CharField(max_length=20)
 
     def __unicode__(self):
-        return "%s %s" % (self.user.username, self.text)
+        return "%s %s" % (self.user.full_name, self.text)
 
     @property
     def rel_time(self):
