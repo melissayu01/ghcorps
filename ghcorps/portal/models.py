@@ -51,7 +51,7 @@ class Job (models.Model):
 
     @property
     def date_range (self):
-        return "%s &emdash %s" % (format_day(self.start_date),
+        return "%s -- %s" % (format_day(self.start_date),
                                   format_day(self.end_date))
     
 
@@ -60,7 +60,7 @@ class Job (models.Model):
             status = '[AVAILABLE]'
         else:
             status = '[TAKEN]'
-        return "%s | %s | %s &emdash %s\n%s" % (self.title, 
+        return "%s | %s | %s -- %s\n%s" % (self.title, 
                                             self.location, 
                                             format_day(self.start_date),
                                             format_day(self.end_date),
