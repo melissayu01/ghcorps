@@ -1,6 +1,8 @@
+{% load staticfiles %}
+
 <div class="list-group-item">
     <div class="row-picture">
-        <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+        <img class="circle" src="{% static "portal/imgs/prof_pic.png" %}" alt="icon">
     </div>
     <div class="row-content">
         <div class="least-content">{{activity.rel_time}}</div>

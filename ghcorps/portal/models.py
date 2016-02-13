@@ -27,14 +27,14 @@ class UserExtra (models.Model):
     linkedin = models.CharField(max_length = 200)
     twitter = models.CharField(max_length = 200)
     about = models.TextField()
-    prof_pic = models.ImageField(upload_to=rename_file, max_length=300)
+    prof_pic = models.ImageField(upload_to=rename_file, max_length=300, blank=True)
 
     @property
     def full_name(self):
         return ' '.join(first_name, last_name)
 
     def __unicode__(self):
-        return "%s: %s" % (self.username, self.full_name)
+        return "%s" % (self.u.username)
     
 
 class Job (models.Model):
