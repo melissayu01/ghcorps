@@ -87,7 +87,8 @@ class Post (models.Model):
     
     @property
     def rel_time(self):
-        now = pytz.UTC.localize(datetime.datetime.now())
+        eastern = pytz.timezone('US/Eastern')
+        now = eastern.localize(datetime.datetime.now())
         dt = self.dt
         months = ['', 'Jan', 'Feb', 'Mar', 'Apr',
           'May', 'Jun', 'Jul', 'Aug',
@@ -117,7 +118,8 @@ class Reply (models.Model):
     @property
     def rel_time(self):
         dt = self.dt
-        now = pytz.UTC.localize(datetime.datetime.now())
+        eastern = pytz.timezone('US/Eastern')
+        now = eastern.localize(datetime.datetime.now())
         months = ['', 'Jan', 'Feb', 'Mar', 'Apr',
           'May', 'Jun', 'Jul', 'Aug',
           'Sept', 'Oct', 'Nov', 'Dec']
@@ -161,7 +163,8 @@ class Activity (models.Model):
     @property
     def rel_time(self):
         dt = self.dt
-        now = pytz.UTC.localize(datetime.datetime.now())
+        eastern = pytz.timezone('US/Eastern')
+        now = eastern.localize(datetime.datetime.now())
         months = ['', 'Jan', 'Feb', 'Mar', 'Apr',
           'May', 'Jun', 'Jul', 'Aug',
           'Sept', 'Oct', 'Nov', 'Dec']
