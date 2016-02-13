@@ -1,12 +1,15 @@
 <div class="list-group-item">
-    <div class="row-action-primary">
-        <i class="material-icons">notifications</i>
+    <div class="row-picture">
+        <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
     </div>
     <div class="row-content">
         <div class="least-content">{{activity.rel_time}}</div>
-        <h4 class="list-group-item-heading"><a href="/users/{{ activity.user.username }}">{{ activity.user.full_name }}</a>{{activity.text}}</h4>
+        <h2><a href="/users/{{ activity.user.username }}">{{ request.user.full_name}}</a></h2>
+        <p class="list-group-item-text">{{request.user.about}}</p>
     </div>
 </div>
+<div class="list-group-separator"></div>
+
 
 <!-- Things that you can use from activity
 activity.user (the user object of who did it, 

@@ -13,14 +13,102 @@
         
         <!-- Recent Activity -->
         <div class="col-sm-7">
+            <!-- News from GHCorps -->
             <div class="jumbotron">
                 <h1>A Community Dedicated to Change</h1>
                 <em><p>Global Health Corps Portal</p></em>
 
-                <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <p>This is where you might feature news or recent blog posts
+                from GHCorps about recent international development efforts. The first part of the
+                post can be read here...</p>
 
-                <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+                <p><a class="btn btn-primary btn-lg" href="http://ghcorps.org/">Read more</a></p>
             </div>
+
+            <!-- Newsfeed -->
+            <div class="bs-docs-section">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-header">
+                        <h1 id="progress">Recent Activity from Your Friends</h1>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-warning" style="width: 80%"></div>
+                    </div>
+            </div>
+
+            <div class="bs-component">
+                <div class="list-group">
+                    
+                    <!-- FOR TESTING -->
+                    <div class="list-group-item">
+                        <div class="row-picture">
+                            <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+                        </div>
+                        <div class="row-content">
+                            <div class="least-content">15m{{activity.rel_time}}</div>
+                            <h2>Cisco Rivera{{ request.user.full_name}}</h2>
+                            <p class="list-group-item-text">jaskld;fjklawhgioweahg;slvavslwasndlgjwela;jgiorwahgosadkhsj {{request.user.about}}</p>
+                        </div>
+                    </div>
+                    <div class="list-group-separator"></div>
+
+                    <div class="list-group-item">
+                        <div class="row-picture">
+                            <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+                        </div>
+                        <div class="row-content">
+                            <div class="least-content">15m{{activity.rel_time}}</div>
+                            <h2>Cisco Rivera{{ request.user.full_name}}</h2>
+                            <p class="list-group-item-text">jaskld;fjklawhgioweahg;slvavslwasndlgjwela;jgiorwahgosadkhsj {{request.user.about}}</p>
+                        </div>
+                    </div>
+                    <div class="list-group-separator"></div>
+
+                    <div class="list-group-item">
+                        <div class="row-picture">
+                            <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+                        </div>
+                        <div class="row-content">
+                            <div class="least-content">15m{{activity.rel_time}}</div>
+                            <h2>Cisco Rivera{{ request.user.full_name}}</h2>
+                            <p class="list-group-item-text">jaskld;fjklawhgioweahg;slvavslwasndlgjwela;jgiorwahgosadkhsj {{request.user.about}}</p>
+                        </div>
+                    </div>
+                    <div class="list-group-separator"></div>
+
+                    <div class="list-group-item">
+                        <div class="row-picture">
+                            <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+                        </div>
+                        <div class="row-content">
+                            <div class="least-content">15m{{activity.rel_time}}</div>
+                            <h2>Cisco Rivera{{ request.user.full_name}}</h2>
+                            <p class="list-group-item-text">jaskld;fjklawhgioweahg;slvavslwasndlgjwela;jgiorwahgosadkhsj {{request.user.about}}</p>
+                        </div>
+                    </div>
+                    <div class="list-group-separator"></div>
+
+                    <div class="list-group-item">
+                        <div class="row-picture">
+                            <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+                        </div>
+                        <div class="row-content">
+                            <div class="least-content">15m{{activity.rel_time}}</div>
+                            <h2><a href="/users/{{ activity.user.username }}">Cisco{{ request.user.full_name}}</a></h2>
+                            <p class="list-group-item-text">jaskld;fjklawhgioweahg;slvavslwasndlgjwela;jgiorwahgosadkhsj {{request.user.about}}</p>
+                        </div>
+                    </div>
+                    <div class="list-group-separator"></div>
+                    <!-- END TESTING -->
+                    
+                    {% for activity in activity_list %}
+                        {% include "activity_fragment.html" %}
+                    {% endfor %}
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
