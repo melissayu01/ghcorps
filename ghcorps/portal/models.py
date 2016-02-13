@@ -11,6 +11,14 @@ def rename_file(instance, filename):
     filename = os.path.join(os.getcwd(), 'portal/static/portal/images/profiles/%s.%s' % (instance.username, ext))
     return filename
 
+def format_day(dt):
+    months = ['Jan', 'Feb', 'Mar', 'Apr',
+          'May', 'Jun', 'Jul', 'Aug',
+          'Sept', 'Oct', 'Nov', 'Dec']
+    return "%s %i, %i" % (months[dt.month] ,
+                          dt.day,
+                          dt.year)
+
 class User (authmodels.User):
     fb = models.CharField(max_length = 200)
     linkedin = models.CharField(max_length = 200)
@@ -21,6 +29,9 @@ class User (authmodels.User):
     @property
     def full_name(self):
         return ' '.join(first_name, last_name)
+
+    def __unicode__(self):
+        return "%s: %s" % (self.username, self.full_name)
     
 
 class Job (models.Model):
@@ -31,9 +42,15 @@ class Job (models.Model):
     salary = models.PositiveIntegerField()
     location = models.CharField(max_length = 50)
     qualifications = models.TextField(max_length = 500)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, blank = True, null = True)
     essay1 = models.TextField()
     essay2 = models.TextField()
+
+    def __unicode__(self):
+        return "%s | %s | %s &emdash %s" % (self.title, 
+                                            self.location, 
+                                            format_day(self.start_date),
+                                            format_day(self.end_date))
 
 class Post (models.Model):
     subject = models.CharField(max_length = 100)
@@ -41,9 +58,13 @@ class Post (models.Model):
     user = models.ForeignKey(User)
     dt = models.DateTimeField(auto_now_add = True)
 
+    def __unicode__(self):
+        "User: %s\nDate: %s\nSubject: %s" % (self.user.username,
+                                             format_day(self.dt),
+                                             self.subject)
     @property
     def content_preview(self):
-        return self. content_preview
+        return "not implemented yet"
     
     @property
     def rel_time(self):
@@ -56,11 +77,11 @@ class Post (models.Model):
             return "%i seconds" % diff.seconds
         elif diff < datetime.timedelta(minutes=60):
             return "%i minutes" % diff.minutes
-        elif diff < datetime.timedelta(hours=24)
+        elif diff <= datetime.timedelta(hours=23):
             return "%i hours" % diff.hours
-        elif diff < datetime.timedelta(days=31)
+        elif diff < datetime.timedelta(days=31):
             return "%i days" % diff.days
-        elif now.year == dt.year
+        elif now.year == dt.year:
             return "%s %i" % (months[dt.month], dt.day)
         else:
             return "%s %i, %i" % (months[dt.month], 
@@ -84,11 +105,11 @@ class Reply (models.Model):
             return "%i seconds" % diff.seconds
         elif diff < datetime.timedelta(minutes=60):
             return "%i minutes" % diff.minutes
-        elif diff < datetime.timedelta(hours=24)
+        elif diff <= datetime.timedelta(hours=23):
             return "%i hours" % diff.hours
-        elif diff < datetime.timedelta(days=31)
+        elif diff < datetime.timedelta(days=31):
             return "%i days" % diff.days
-        elif now.year == dt.year
+        elif now.year == dt.year:
             return "%s %i" % (months[dt.month], dt.day)
         else:
             return "%s %i, %i" % (months[dt.month], 
@@ -112,11 +133,11 @@ class Activity (models.Model):
             return "%i seconds" % diff.seconds
         elif diff < datetime.timedelta(minutes=60):
             return "%i minutes" % diff.minutes
-        elif diff < datetime.timedelta(hours=24)
+        elif diff <= datetime.timedelta(hours=23):
             return "%i hours" % diff.hours
-        elif diff < datetime.timedelta(days=31)
+        elif diff < datetime.timedelta(days=31):
             return "%i days" % diff.days
-        elif now.year == dt.year
+        elif now.year == dt.year:
             return "%s %i" % (months[dt.month], dt.day)
         else:
             return "%s %i, %i" % (months[dt.month], 
