@@ -47,6 +47,12 @@ class Job (models.Model):
     essay1 = models.TextField()
     essay2 = models.TextField()
 
+    @property
+    def date_range (self):
+        return "%s &emdash %s" % (format_day(self.start_date),
+                                  format_day(self.end_date))
+    
+
     def __unicode__(self):
         if self.user == None:
             status = '[AVAILABLE]'

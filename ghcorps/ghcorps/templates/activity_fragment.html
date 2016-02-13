@@ -1,6 +1,11 @@
-<div class="well">
-<p> <h3> <a href="/users/{{ activity.user.username }}">{{ activity.user.full_name }}</a> </h3> ({{ activity.rel_time }}) </p>
-<p> {{ activity.user.text }}
+<div class="list-group-item">
+    <div class="row-action-primary">
+        <i class="material-icons">notifications</i>
+    </div>
+    <div class="row-content">
+        <div class="least-content">{{activity.rel_time}}</div>
+        <h4 class="list-group-item-heading"><a href="/users/{{ activity.user.username }}">{{ activity.user.full_name }}</a>{{activity.text}}</h4>
+    </div>
 </div>
 
 <!-- Things that you can use from activity
